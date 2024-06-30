@@ -1,5 +1,7 @@
 package world.bentobox.bskyblock;
 
+import com.onarandombox.zutils.api.WorldManager;
+import com.onarandombox.zutils.api.ZAPIEntryPoint;
 import org.bukkit.World;
 import org.bukkit.World.Environment;
 import org.bukkit.entity.SpawnCategory;
@@ -128,7 +130,8 @@ public class BSkyBlock extends GameModeAddon implements Listener {
         worldName2 = env.equals(World.Environment.NETHER) ? worldName2 + NETHER : worldName2;
         worldName2 = env.equals(World.Environment.THE_END) ? worldName2 + THE_END : worldName2;
         WorldCreator wc = WorldCreator.name(worldName2).type(WorldType.FLAT).environment(env);
-        World w = settings.isUseOwnGenerator() ? wc.createWorld() : wc.generator(chunkGenerator2).createWorld();
+        WorldManager wm = ZAPIEntryPoint.getWorldManager();
+        World w = settings.isUseOwnGenerator() ? wm.createWorld(wc) : wm.createWorld(wc.generator(chunkGenerator2));
         // Set spawn rates
         // Set spawn rates
         if (w != null && getSettings() != null) {

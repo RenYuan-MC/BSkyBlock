@@ -162,6 +162,13 @@
             <version>${bentobox.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.onarandombox.multiversecore</groupId>
+            <artifactId>Multiverse-Core</artifactId>
+            <version>4.3.12-zeta_folia-experimental</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/multiverse-core-4.3.12-zeta_folia-experimental.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
